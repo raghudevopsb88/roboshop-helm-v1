@@ -1,0 +1,15 @@
+appName: roboshop-payment
+appPort: 8080
+serviceType: ClusterIP
+config_values:
+  CART_HOST: "roboshop-cart"
+  CART_PORT: "8080"
+  USER_HOST: "roboshop-user"
+  USER_PORT: "8080"
+  AMQP_HOST: "rabbitmq"
+  AMQP_USER: "guest"
+  AMQP_PASS: "guest"
+  PAYMENT_GATEWAY: "https://google.com/"
+  PAYMENT_DELAY_MS: "0"
+  SHOP_PAYMENT_PORT: "8080"
+PARAMS: "CART_HOST CART_PORT USER_HOST USER_PORT AMQP_HOST AMQP_USER AMQP_PASS PAYMENT_GATEWAY PAYMENT_DELAY_MS SHOP_PAYMENT_PORT"

@@ -1,0 +1,10 @@
+appName: roboshop-ratings
+appPort: 8080
+serviceType: ClusterIP
+config_values:
+  MYSQL_HOST: "mysql"
+  MYSQL_USER: "ratings"
+  MYSQL_PASSWORD: "RoboShop@1"
+  MYSQL_DATABASE: "ratings"
+  PORT: "8080"
+PARAMS: "MYSQL_HOST MYSQL_USER MYSQL_PASSWORD MYSQL_DATABASE PORT"

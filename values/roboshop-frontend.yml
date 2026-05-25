@@ -1,0 +1,13 @@
+appName: roboshop-frontend
+appPort: 8080
+serviceType: ClusterIP
+config_values:
+  CATALOGUE_HOST: "roboshop-catalogue"
+  USER_HOST: "roboshop-user"
+  CART_HOST: "roboshop-cart"
+  SHIPPING_HOST: "roboshop-shipping"
+  PAYMENT_HOST: "roboshop-payment"
+  RATINGS_HOST: "roboshop-ratings"
+PARAMS: "CATALOGUE_HOST USER_HOST CART_HOST SHIPPING_HOST PAYMENT_HOST RATINGS_HOST"
+ingress:
+  enabled: true
