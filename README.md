@@ -23,11 +23,12 @@ helm upgrade -i roboshop-cart . -f values/roboshop-cart.yml --set image_tag=<git
 
 ## AWS SSM parameters
 
-Parameter definitions live in `aws-ssm/main.tf`. Apply with:
+All 42 parameters are hardcoded in `terraform/main.tf`. Edit values there, then apply:
 
 ```shell
-cd aws-ssm
-make def
+cd terraform
+make init
+make apply
 ```
 
 The `ssm-pull` init container reads parameters listed in each service's `PARAMS` value at deploy time.
