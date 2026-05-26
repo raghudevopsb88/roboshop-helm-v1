@@ -151,9 +151,19 @@ variable "inputs" {
       value = "8080"
     },
     {
+      name  = "/roboshop-frontend/NGINX_PORT"
+      type  = "String"
+      value = "8080"
+    },
+    {
       name  = "/roboshop-frontend/CATALOGUE_HOST"
       type  = "String"
       value = "roboshop-catalogue"
+    },
+    {
+      name  = "/roboshop-frontend/CATALOGUE_PORT"
+      type  = "String"
+      value = "8080"
     },
     {
       name  = "/roboshop-frontend/USER_HOST"
@@ -161,9 +171,19 @@ variable "inputs" {
       value = "roboshop-user"
     },
     {
+      name  = "/roboshop-frontend/USER_PORT"
+      type  = "String"
+      value = "8080"
+    },
+    {
       name  = "/roboshop-frontend/CART_HOST"
       type  = "String"
       value = "roboshop-cart"
+    },
+    {
+      name  = "/roboshop-frontend/CART_PORT"
+      type  = "String"
+      value = "8080"
     },
     {
       name  = "/roboshop-frontend/SHIPPING_HOST"
@@ -171,14 +191,39 @@ variable "inputs" {
       value = "roboshop-shipping"
     },
     {
+      name  = "/roboshop-frontend/SHIPPING_PORT"
+      type  = "String"
+      value = "8080"
+    },
+    {
       name  = "/roboshop-frontend/PAYMENT_HOST"
       type  = "String"
       value = "roboshop-payment"
     },
     {
+      name  = "/roboshop-frontend/PAYMENT_PORT"
+      type  = "String"
+      value = "8080"
+    },
+    {
       name  = "/roboshop-frontend/RATINGS_HOST"
       type  = "String"
       value = "roboshop-ratings"
+    },
+    {
+      name  = "/roboshop-frontend/RATINGS_PORT"
+      type  = "String"
+      value = "8080"
+    },
+    {
+      name  = "/roboshop-frontend/ORDERS_HOST"
+      type  = "String"
+      value = "roboshop-orders"
+    },
+    {
+      name  = "/roboshop-frontend/ORDERS_PORT"
+      type  = "String"
+      value = "8080"
     }
   ]
 }
