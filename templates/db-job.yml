@@ -1,0 +1,45 @@
+{{- if .Values.dbJob.enabled }}
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ .Values.appName }}-db-setup
+  labels:
+    appName: {{ .Values.appName }}
+    component: db-setup
+  annotations:
+    helm.sh/hook: pre-install,pre-upgrade
+    helm.sh/hook-weight: "-5"
+    helm.sh/hook-delete-policy: before-hook-creation
+spec:
+  backoffLimit: 3
+  template:
+    metadata:
+      labels:
+        appName: {{ .Values.appName }}
+        component: db-setup
+    spec:
+      restartPolicy: OnFailure
+      serviceAccountName: {{ .Values.appName }}
+      volumes:
+        - name: params
+          emptyDir: {}
+      initContainers:
+        - name: ssm-pull
+          image: 739561048503.dkr.ecr.us-east-1.amazonaws.com/ssm-pull:latest
+          imagePullPolicy: Always
+          env:
+            - name: PARAMS
+              value: {{ .Values.dbJob.PARAMS | quote }}
+            - name: SERVICE_NAME
+              value: {{ .Values.appName }}
+          volumeMounts:
+            - name: params
+              mountPath: /data
+      containers:
+        - name: db-setup
+          image: 739561048503.dkr.ecr.us-east-1.amazonaws.com/{{ .Values.appName }}-db:{{ .Values.image_tag }}
+          imagePullPolicy: Always
+          volumeMounts:
+            - name: params
+              mountPath: /data
+{{- end }}

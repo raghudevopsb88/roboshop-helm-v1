@@ -4,4 +4,8 @@ serviceType: ClusterIP
 config_values:
   DB_HOST: "mysql"
   CART_ENDPOINT: "roboshop-cart:8080"
+  MYSQL_ROOT_PASSWORD: "RoboShop@1"
 PARAMS: "DB_HOST CART_ENDPOINT"
+dbJob:
+  enabled: true
+  PARAMS: "DB_HOST MYSQL_ROOT_PASSWORD"

@@ -1,3 +1,6 @@
 replicas: 2
 ingress:
   enabled: false
+dbJob:
+  enabled: false
+  PARAMS: ""

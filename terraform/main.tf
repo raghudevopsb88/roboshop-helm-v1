@@ -52,6 +52,7 @@ variable "parameters" {
     # roboshop-shipping
     { name = "/roboshop-shipping/DB_HOST", type = "String", value = "mysql" },
     { name = "/roboshop-shipping/CART_ENDPOINT", type = "String", value = "roboshop-cart:8080" },
+    { name = "/roboshop-shipping/MYSQL_ROOT_PASSWORD", type = "SecureString", value = "RoboShop@1" },
 
     # roboshop-ratings
     { name = "/roboshop-ratings/MYSQL_HOST", type = "String", value = "mysql" },
@@ -59,6 +60,7 @@ variable "parameters" {
     { name = "/roboshop-ratings/MYSQL_PASSWORD", type = "SecureString", value = "RoboShop@1" },
     { name = "/roboshop-ratings/MYSQL_DATABASE", type = "String", value = "ratings" },
     { name = "/roboshop-ratings/PORT", type = "String", value = "8080" },
+    { name = "/roboshop-ratings/MYSQL_ROOT_PASSWORD", type = "SecureString", value = "RoboShop@1" },
 
     # roboshop-frontend
     { name = "/roboshop-frontend/NGINX_PORT", type = "String", value = "8080" },

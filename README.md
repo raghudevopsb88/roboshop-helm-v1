@@ -32,3 +32,23 @@ make apply
 ```
 
 The `ssm-pull` init container reads parameters listed in each service's `PARAMS` value at deploy time.
+
+## Database setup Jobs
+
+Services with schema/master-data scripts run a Helm pre-install/pre-upgrade Job using a separate `-db` image:
+
+| Service | DB type | Scripts |
+|---------|---------|---------|
+| roboshop-catalogue | MongoDB | `master-data.js` |
+| roboshop-shipping | MySQL | `schema.sql`, `app-user.sql`, `master-data.sql` |
+| roboshop-ratings | MySQL | `schema.sql`, `app-user.sql` |
+
+Enable in values with:
+
+```yaml
+dbJob:
+  enabled: true
+  PARAMS: "MYSQL_HOST MYSQL_ROOT_PASSWORD"
+```
+
+Image: `739561048503.dkr.ecr.us-east-1.amazonaws.com/<service>-db:<tag>`
