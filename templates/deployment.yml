@@ -24,7 +24,7 @@ spec:
           imagePullPolicy: Always
           env:
             - name: PARAMS
-              value: {{ .Values.PARAMS }}
+              value: {{ .Values.PARAMS | quote }}
             - name: SERVICE_NAME
               value: {{ .Values.appName }}
           volumeMounts:
