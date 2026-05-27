@@ -28,13 +28,16 @@ variable "parameters" {
     { name = "/roboshop-cart/CART_SERVER_PORT", type = "String", value = "8080" },
 
     # roboshop-catalogue
-    { name = "/roboshop-catalogue/MONGO_URL", type = "SecureString", value = "mongodb://mongodb.dev.roboshop.internal:27017/catalogue" },
+    { name = "/roboshop-catalogue/MYSQL_HOST", type = "String", value = "mysql" },
+    { name = "/roboshop-catalogue/MYSQL_USER", type = "String", value = "catalogue" },
+    { name = "/roboshop-catalogue/MYSQL_PASSWORD", type = "SecureString", value = "RoboShop@1" },
+    { name = "/roboshop-catalogue/MYSQL_DATABASE", type = "String", value = "catalogue" },
     { name = "/roboshop-catalogue/CATALOGUE_SERVER_PORT", type = "String", value = "8080" },
-    { name = "/roboshop-catalogue/GO_SLOW", type = "String", value = "0" },
+    { name = "/roboshop-catalogue/MYSQL_ROOT_PASSWORD", type = "SecureString", value = "RoboShop@1" },
 
     # roboshop-user
     { name = "/roboshop-user/MONGO_URL", type = "SecureString", value = "mongodb://mongodb:27017/users" },
-    { name = "/roboshop-user/REDIS_URL", type = "SecureString", value = "redis://redis:6379" },
+    { name = "/roboshop-user/JWT_SECRET", type = "SecureString", value = "roboshop-secret-key" },
     { name = "/roboshop-user/USER_SERVER_PORT", type = "String", value = "8080" },
 
     # roboshop-payment
@@ -45,13 +48,13 @@ variable "parameters" {
     { name = "/roboshop-payment/AMQP_HOST", type = "String", value = "rabbitmq" },
     { name = "/roboshop-payment/AMQP_USER", type = "String", value = "guest" },
     { name = "/roboshop-payment/AMQP_PASS", type = "SecureString", value = "guest" },
-    { name = "/roboshop-payment/PAYMENT_GATEWAY", type = "String", value = "https://google.com/" },
-    { name = "/roboshop-payment/PAYMENT_DELAY_MS", type = "String", value = "0" },
     { name = "/roboshop-payment/SHOP_PAYMENT_PORT", type = "String", value = "8080" },
 
     # roboshop-shipping
     { name = "/roboshop-shipping/DB_HOST", type = "String", value = "mysql" },
-    { name = "/roboshop-shipping/CART_ENDPOINT", type = "String", value = "roboshop-cart:8080" },
+    { name = "/roboshop-shipping/DB_USER", type = "String", value = "shipping" },
+    { name = "/roboshop-shipping/DB_PASS", type = "SecureString", value = "RoboShop@1" },
+    { name = "/roboshop-shipping/PORT", type = "String", value = "8080" },
     { name = "/roboshop-shipping/MYSQL_ROOT_PASSWORD", type = "SecureString", value = "RoboShop@1" },
 
     # roboshop-ratings
@@ -61,6 +64,15 @@ variable "parameters" {
     { name = "/roboshop-ratings/MYSQL_DATABASE", type = "String", value = "ratings" },
     { name = "/roboshop-ratings/PORT", type = "String", value = "8080" },
     { name = "/roboshop-ratings/MYSQL_ROOT_PASSWORD", type = "SecureString", value = "RoboShop@1" },
+
+    # roboshop-orders
+    { name = "/roboshop-orders/MONGO_URL", type = "SecureString", value = "mongodb://mongodb:27017/orders" },
+    { name = "/roboshop-orders/AMQP_HOST", type = "String", value = "rabbitmq" },
+    { name = "/roboshop-orders/AMQP_USER", type = "String", value = "guest" },
+    { name = "/roboshop-orders/AMQP_PASS", type = "SecureString", value = "guest" },
+    { name = "/roboshop-orders/SHIPPING_HOST", type = "String", value = "roboshop-shipping" },
+    { name = "/roboshop-orders/SHIPPING_PORT", type = "String", value = "8080" },
+    { name = "/roboshop-orders/PORT", type = "String", value = "8080" },
 
     # roboshop-frontend
     { name = "/roboshop-frontend/NGINX_PORT", type = "String", value = "8080" },

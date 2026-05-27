@@ -1,0 +1,6 @@
+.git
+.terraform
+terraform/.terraform
+terraform/.terraform.lock.hcl
+aws-ssm
+README.md

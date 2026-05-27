@@ -3,6 +3,10 @@ appPort: 8080
 serviceType: ClusterIP
 config_values:
   MONGO_URL: "mongodb://mongodb:27017/users"
-  REDIS_URL: "redis://redis:6379"
+  JWT_SECRET: "roboshop-secret-key"
   USER_SERVER_PORT: "8080"
-PARAMS: "MONGO_URL REDIS_URL USER_SERVER_PORT"
+PARAMS: "MONGO_URL JWT_SECRET USER_SERVER_PORT"
+dbJob:
+  enabled: true
+  PARAMS: "MONGO_URL"
+  imageTag: latest
