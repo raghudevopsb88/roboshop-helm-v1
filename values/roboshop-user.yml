@@ -2,7 +2,7 @@ appName: roboshop-user
 appPort: 8080
 serviceType: ClusterIP
 config_values:
-  MONGO_URL: "mongodb://mongodb:27017/users"
+  MONGO_URL: "mongodb://mongodb.dev.roboshop.internal:27017/users"
   JWT_SECRET: "roboshop-secret-key"
   USER_SERVER_PORT: "8080"
 PARAMS: "MONGO_URL JWT_SECRET USER_SERVER_PORT"

@@ -2,7 +2,7 @@ appName: roboshop-catalogue
 appPort: 8080
 serviceType: ClusterIP
 config_values:
-  MYSQL_HOST: "mysql"
+  MYSQL_HOST: "mysql.dev.roboshop.internal"
   MYSQL_USER: "catalogue"
   MYSQL_PASSWORD: "RoboShop@1"
   MYSQL_DATABASE: "catalogue"

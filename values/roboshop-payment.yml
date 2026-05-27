@@ -6,7 +6,7 @@ config_values:
   CART_PORT: "8080"
   USER_HOST: "roboshop-user"
   USER_PORT: "8080"
-  AMQP_HOST: "rabbitmq"
+  AMQP_HOST: "rabbitmq.dev.roboshop.internal"
   AMQP_USER: "guest"
   AMQP_PASS: "guest"
   SHOP_PAYMENT_PORT: "8080"

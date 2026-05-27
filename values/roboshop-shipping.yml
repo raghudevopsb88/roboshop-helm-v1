@@ -2,7 +2,7 @@ appName: roboshop-shipping
 appPort: 8080
 serviceType: ClusterIP
 config_values:
-  DB_HOST: "mysql"
+  DB_HOST: "mysql.dev.roboshop.internal"
   DB_USER: "shipping"
   DB_PASS: "RoboShop@1"
   PORT: "8080"
