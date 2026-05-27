@@ -9,3 +9,4 @@ PARAMS: "MONGO_URL CATALOGUE_SERVER_PORT GO_SLOW"
 dbJob:
   enabled: true
   PARAMS: "MONGO_URL"
+  imageTag: latest

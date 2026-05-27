@@ -51,4 +51,4 @@ dbJob:
   PARAMS: "MYSQL_HOST MYSQL_ROOT_PASSWORD"
 ```
 
-Image: `739561048503.dkr.ecr.us-east-1.amazonaws.com/<service>-db:<tag>`
+Image: `739561048503.dkr.ecr.us-east-1.amazonaws.com/<service>-db:latest` (always pulled with `imagePullPolicy: Always`)

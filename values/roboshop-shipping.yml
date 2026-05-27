@@ -9,3 +9,4 @@ PARAMS: "DB_HOST CART_ENDPOINT"
 dbJob:
   enabled: true
   PARAMS: "DB_HOST MYSQL_ROOT_PASSWORD"
+  imageTag: latest

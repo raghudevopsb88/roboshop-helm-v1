@@ -4,3 +4,4 @@ ingress:
 dbJob:
   enabled: false
   PARAMS: ""
+  imageTag: latest
