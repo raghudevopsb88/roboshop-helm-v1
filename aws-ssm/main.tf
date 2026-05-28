@@ -53,8 +53,8 @@ variable "inputs" {
     { name = "/roboshop-payment/USER_HOST", type = "String", value = "roboshop-user" },
     { name = "/roboshop-payment/USER_PORT", type = "String", value = "8080" },
     { name = "/roboshop-payment/AMQP_HOST", type = "String", value = "rabbitmq.dev.roboshop.internal" },
-    { name = "/roboshop-payment/AMQP_USER", type = "String", value = "guest" },
-    { name = "/roboshop-payment/AMQP_PASS", type = "SecureString", value = "guest" },
+    { name = "/roboshop-payment/AMQP_USER", type = "String", value = "roboshop" },
+    { name = "/roboshop-payment/AMQP_PASS", type = "SecureString", value = "RoboShop@1" },
     { name = "/roboshop-payment/SHOP_PAYMENT_PORT", type = "String", value = "8080" },
 
     # roboshop-shipping
@@ -75,8 +75,8 @@ variable "inputs" {
     # roboshop-orders
     { name = "/roboshop-orders/MONGO_URL", type = "SecureString", value = "mongodb://mongodb.dev.roboshop.internal:27017/orders" },
     { name = "/roboshop-orders/AMQP_HOST", type = "String", value = "rabbitmq.dev.roboshop.internal" },
-    { name = "/roboshop-orders/AMQP_USER", type = "String", value = "guest" },
-    { name = "/roboshop-orders/AMQP_PASS", type = "SecureString", value = "guest" },
+    { name = "/roboshop-orders/AMQP_USER", type = "String", value = "roboshop" },
+    { name = "/roboshop-orders/AMQP_PASS", type = "SecureString", value = "RoboShop@1" },
     { name = "/roboshop-orders/SHIPPING_HOST", type = "String", value = "roboshop-shipping" },
     { name = "/roboshop-orders/SHIPPING_PORT", type = "String", value = "8080" },
     { name = "/roboshop-orders/PORT", type = "String", value = "8080" },

@@ -4,8 +4,8 @@ serviceType: ClusterIP
 config_values:
   MONGO_URL: "mongodb://mongodb.dev.roboshop.internal:27017/orders"
   AMQP_HOST: "rabbitmq.dev.roboshop.internal"
-  AMQP_USER: "guest"
-  AMQP_PASS: "guest"
+  AMQP_USER: "roboshop"
+  AMQP_PASS: "RoboShop@1"
   SHIPPING_HOST: "roboshop-shipping"
   SHIPPING_PORT: "8080"
   PORT: "8080"
