@@ -5,7 +5,9 @@ metadata:
   labels:
     appName: {{ .Values.appName }}
 spec:
+  {{- if not .Values.autoscaling.enabled }}
   replicas: {{ .Values.replicas }}
+  {{- end }}
   selector:
     matchLabels:
       appName: {{ .Values.appName }}
@@ -34,6 +36,10 @@ spec:
         - name: {{ .Values.appName }}
           image: 739561048503.dkr.ecr.us-east-1.amazonaws.com/{{ .Values.appName }}:{{ .Values.image_tag }}
           imagePullPolicy: Always
+          {{- with .Values.resources }}
+          resources:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
           volumeMounts:
             - name: params
               mountPath: /data
