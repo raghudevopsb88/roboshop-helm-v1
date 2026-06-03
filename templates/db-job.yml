@@ -4,7 +4,7 @@ kind: Job
 metadata:
   name: {{ .Values.appName }}-db-setup
   labels:
-    appName: {{ .Values.appName }}
+    appName: {{ .Values.appName }}-db
     component: db-setup
   annotations:
     helm.sh/hook: pre-install,pre-upgrade
@@ -15,7 +15,7 @@ spec:
   template:
     metadata:
       labels:
-        appName: {{ .Values.appName }}
+        appName: {{ .Values.appName }}-db
         component: db-setup
     spec:
       restartPolicy: OnFailure
