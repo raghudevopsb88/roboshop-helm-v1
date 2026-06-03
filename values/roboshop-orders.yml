@@ -10,3 +10,12 @@ config_values:
   SHIPPING_PORT: "8080"
   PORT: "8080"
 PARAMS: "MONGO_URL AMQP_HOST AMQP_USER AMQP_PASS SHIPPING_HOST SHIPPING_PORT PORT"
+
+resources:
+  requests:
+    cpu: 200m
+    memory: 256Mi
+  limits:
+    cpu: 500m
+    memory: 512Mi
+
