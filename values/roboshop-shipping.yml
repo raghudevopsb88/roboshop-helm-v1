@@ -11,3 +11,12 @@ dbJob:
   enabled: true
   PARAMS: "DB_HOST MYSQL_ROOT_PASSWORD"
   imageTag: latest
+
+resources:
+  requests:
+    cpu: 300m
+    memory: 512Mi
+  limits:
+    cpu: 500m
+    memory: 1024Mi
+
