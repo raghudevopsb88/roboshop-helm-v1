@@ -10,3 +10,11 @@ dbJob:
   enabled: true
   PARAMS: "MONGO_URL"
   imageTag: latest
+
+resources:
+  requests:
+    cpu: 300m
+    memory: 128Mi
+  limits:
+    cpu: 500m
+    memory: 512Mi
