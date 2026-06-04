@@ -36,6 +36,18 @@ spec:
         - name: {{ .Values.appName }}
           image: 739561048503.dkr.ecr.us-east-1.amazonaws.com/{{ .Values.appName }}:{{ .Values.image_tag }}
           imagePullPolicy: Always
+          ports:
+            - name: http
+              containerPort: {{ .Values.appPort }}
+              protocol: TCP
+          {{- with .Values.readinessProbe }}
+          readinessProbe:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          {{- with .Values.livenessProbe }}
+          livenessProbe:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
           {{- with .Values.resources }}
           resources:
             {{- toYaml . | nindent 12 }}
