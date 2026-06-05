@@ -1,6 +1,30 @@
 appName: roboshop-orders
 appPort: 8080
 serviceType: ClusterIP
+readinessProbe:
+  httpGet:
+    path: /health
+    port: http
+  initialDelaySeconds: 10
+  periodSeconds: 5
+  timeoutSeconds: 3
+  failureThreshold: 3
+livenessProbe:
+  httpGet:
+    path: /health
+    port: http
+  initialDelaySeconds: 30
+  periodSeconds: 15
+  timeoutSeconds: 5
+  failureThreshold: 5
+startupProbe:
+  httpGet:
+    path: /health
+    port: http
+  initialDelaySeconds: 10
+  periodSeconds: 5
+  timeoutSeconds: 3
+  failureThreshold: 36
 config_values:
   MONGO_URL: "mongodb://mongodb.dev.roboshop.internal:27017/orders"
   AMQP_HOST: "rabbitmq.dev.roboshop.internal"

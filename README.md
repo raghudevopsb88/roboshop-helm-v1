@@ -12,14 +12,18 @@ Helm charts for Roboshop microservices, based on [wmp-helm-v2](https://github.co
 | `values/roboshop-payment.yml` | Payment API | 8080 |
 | `values/roboshop-shipping.yml` | Shipping API | 8080 |
 | `values/roboshop-ratings.yml` | Ratings API | 8080 |
+| `values/roboshop-orders.yml` | Orders API | 8080 |
 | `values/roboshop-frontend.yml` | Web frontend (nginx) | 8080 |
 
 ## Install
 
 ```shell
-make helm-install component=roboshop-cart
-helm upgrade -i roboshop-cart . -f values/roboshop-cart.yml --set image_tag=<git-sha>
+make helm-install component=roboshop-cart image_tag=<git-sha>
+# or
+helm upgrade --install roboshop-cart . -f values.yaml -f values/roboshop-cart.yml --set image_tag=<git-sha>
 ```
+
+All services use **startup**, **readiness**, and **liveness** HTTP probes (defaults in `values.yaml`; frontend overrides path to `/nginx-health`).
 
 ## AWS SSM parameters
 

@@ -1,6 +1,30 @@
 appName: roboshop-user
 appPort: 8080
 serviceType: ClusterIP
+readinessProbe:
+  httpGet:
+    path: /health
+    port: http
+  initialDelaySeconds: 5
+  periodSeconds: 5
+  timeoutSeconds: 3
+  failureThreshold: 3
+livenessProbe:
+  httpGet:
+    path: /health
+    port: http
+  initialDelaySeconds: 20
+  periodSeconds: 15
+  timeoutSeconds: 5
+  failureThreshold: 5
+startupProbe:
+  httpGet:
+    path: /health
+    port: http
+  initialDelaySeconds: 5
+  periodSeconds: 5
+  timeoutSeconds: 3
+  failureThreshold: 30
 config_values:
   MONGO_URL: "mongodb://mongodb.dev.roboshop.internal:27017/users"
   JWT_SECRET: "roboshop-secret-key"
