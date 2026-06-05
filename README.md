@@ -25,7 +25,7 @@ helm upgrade --install roboshop-cart . -f values.yaml -f values/roboshop-cart.ym
 
 All services use **startup**, **readiness**, and **liveness** HTTP probes (defaults in `values.yaml`; frontend overrides path to `/nginx-health`).
 
-Rollouts are **slow and one pod at a time** (`values.yaml`): `maxSurge: 1`, `maxUnavailable: 0`, `minReadySeconds: 15` — a new pod must pass probes and stay Ready for 15s before the next old pod is removed. Tune `minReadySeconds` for slower/faster rollouts.
+Rollouts are **slow and one pod at a time** (`values.yaml`): `maxSurge: 1`, `maxUnavailable: 0`, `minReadySeconds: 15`, `preStop sleep 15s`, `PDB minAvailable: 1` — new pod must pass probes and stay Ready 15s before the next old pod is removed; terminating pods drain connections before SIGTERM.
 
 ## AWS SSM parameters
 

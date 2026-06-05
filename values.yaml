@@ -13,8 +13,22 @@ minReadySeconds: 15
 # Allow long rollouts when many replicas (one pod at a time).
 progressDeadlineSeconds: 900
 
-# Grace period for in-flight requests when a pod is terminated.
-terminationGracePeriodSeconds: 30
+# preStop sleep: stay out of Service endpoints while existing connections drain (rolling updates).
+lifecycle:
+  preStop:
+    exec:
+      command:
+        - sh
+        - -c
+        - sleep 60
+
+# preStop (15s) + app graceful shutdown window.
+terminationGracePeriodSeconds: 45
+
+# Keep at least 1 pod available during voluntary disruptions (rollouts, node drain).
+podDisruptionBudget:
+  enabled: true
+  minAvailable: 1
 
 # HTTP probes — all backends expose GET /health on appPort (frontend uses /nginx-health in its values file).
 readinessProbe:
