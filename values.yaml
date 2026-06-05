@@ -13,17 +13,17 @@ minReadySeconds: 15
 # Allow long rollouts when many replicas (one pod at a time).
 progressDeadlineSeconds: 900
 
-# preStop sleep: stay out of Service endpoints while existing connections drain (rolling updates).
+# preStop sleep: drain in-flight requests before SIGTERM reaches the app (must be < terminationGracePeriodSeconds).
 lifecycle:
   preStop:
     exec:
       command:
         - sh
         - -c
-        - sleep 60
+        - sleep 15
 
-# preStop (15s) + app graceful shutdown window.
-terminationGracePeriodSeconds: 45
+# preStop (15s) + app graceful shutdown window (cart SIGTERM handler allows ~25s).
+terminationGracePeriodSeconds: 60
 
 # Keep at least 1 pod available during voluntary disruptions (rollouts, node drain).
 podDisruptionBudget:
