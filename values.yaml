@@ -1,5 +1,21 @@
 replicas: 2
 
+# Slow rolling update: spin up 1 extra pod, wait until it is Ready + minReadySeconds, then terminate 1 old pod.
+strategy:
+  type: RollingUpdate
+  rollingUpdate:
+    maxSurge: 1
+    maxUnavailable: 0
+
+# Seconds a new pod must stay Ready (after probes pass) before the next old pod is removed.
+minReadySeconds: 15
+
+# Allow long rollouts when many replicas (one pod at a time).
+progressDeadlineSeconds: 900
+
+# Grace period for in-flight requests when a pod is terminated.
+terminationGracePeriodSeconds: 30
+
 # HTTP probes — all backends expose GET /health on appPort (frontend uses /nginx-health in its values file).
 readinessProbe:
   httpGet:
