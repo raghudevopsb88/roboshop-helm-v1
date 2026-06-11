@@ -1,0 +1,17 @@
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Helm
+charts/*.tgz
+
+# Secrets / local overrides
+*.pem
+*.key
+secrets/
+.env
+.env.*
+!.env.example
